@@ -53,3 +53,5 @@ def test_search_without_encoding():
     response = client.post("/search_documents", json={"query": "Test"})
     assert response.status_code == 500, f"Statut retourné : {response.status_code}, contenu : {response.json()}"
     assert "Index FAISS non initialisé" in response.json()["detail"] or "Index FAISS est vide" in response.json()["detail"]
+
+
