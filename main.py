@@ -5,6 +5,7 @@ import numpy as np
 import json
 import os
 import faiss
+from contextlib import asynccontextmanager
 
 app = FastAPI(
     title="API de Recherche Optimisée avec FAISS",
@@ -168,15 +169,19 @@ async def global_exception_handler(request, exc):
     return {"status": "error", "message": str(exc)}
 
 # Charger l'index FAISS au démarrage de l'API
-@app.on_event("startup")
-def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     try:
         load_embeddings_with_faiss()
         print("Index FAISS chargé avec succès.")
+        yield
     except Exception as e:
         print("Erreur lors du chargement de l'index FAISS :", e)
+        yield
+app = FastAPI(lifespan=lifespan)
+
 
 # Démarrer l'application
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
