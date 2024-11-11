@@ -128,6 +128,7 @@ Chatbot/
 ├── main.py
 ├── test_main.py
 ├── README.md
+├── requirements.txt
 ├── articles_law.txt
 ├── embeddings.json
 ├── .dist/
