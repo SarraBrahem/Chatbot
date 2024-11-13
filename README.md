@@ -122,10 +122,68 @@ test_main.py::test_search_without_encoding PASSED
 
 ============================== 6 passed in 3.00s ===============================
 
+### 🖥️ Interface Client en Ligne de Commande
+Ce projet inclut une interface client (client.py) qui permet d'interagir directement avec l'API Chatbot via la ligne de commande. L'interface est conviviale et permet d'encoder des documents ou de rechercher des documents pertinents.
+
+### Comment Utiliser l'Interface Client :
+
+1. Étape 1 : Démarrer l'Interface Client
+Exécute le script client.py en ligne de commande :
+- python client.py
+
+2. Étape 2 : Options Disponibles
+Vous serez accueilli par le message suivant :
+===========================
+Bienvenue dans l'interface de commande pour l'API Chatbot
+1. Encoder des documents
+2. Rechercher des documents
+Choisissez une option (1 ou 2) :
+===========================
+
+### Option 1 : Encoder des Documents
+Permet d'encoder une nouvelle liste de documents pour la recherche.
+Vous serez invité à entrer une liste de documents.
+
+### Option 2 : Rechercher des Documents
+Permet de rechercher des documents pertinents en fonction de la requête saisie par l’utilisateur.
+
+### Exemple d’Utilisation
+
+1. Démarrer l'interface client :
+python client.py
+
+2. Choisir l'option 2 pour rechercher des documents :
+===========================
+Bienvenue dans l'interface de commande pour l'API Chatbot
+1. Encoder des documents
+2. Rechercher des documents
+Choisissez une option (1 ou 2) : 2
+Entrez votre requête de recherche : droit
+===========================
+
+- Résultats de la recherche :
+===========================
+Documents pertinents trouvés :
+ID : 8, Texte : droits fondamentaux., Score : -29.80
+ID : 13, Texte : Article 9: Toute personne a droit à la liberté d'expression, sous réserve de ne pas porter atteinte à l’ordre, Score : -48.82
+ID : 1, Texte : constituait pas une infraction pénale selon le droit national ou international., Score : -50.61
+ID : 7, Texte : Article 5: Toute personne a droit à un recours effectif devant une instance nationale pour les actes violant les, Score : -51.51
+ID : 12, Texte : Article 8: Toute personne a droit au respect de sa vie privée et familiale, de son domicile et de sa correspondance., Score : -56.48
+===========================
+
+### Fonctionnalités de l'Interface Client :
+- Encodage de Documents : Permet à l'utilisateur de saisir et encoder une liste de documents.
+- Recherche de Documents : Recherche et affiche les documents les plus pertinents pour la requête saisie.
+
+- Conseils pour l'Utilisation :
+Assurez-vous que le serveur API est en cours d'exécution avant d'utiliser client.py. Pour démarrer le serveur
+
 ### 📂 Structure du Projet
 
 Chatbot/
 ├── main.py
+├── .gitignore
+├── client.py
 ├── test_main.py
 ├── README.md
 ├── requirements.txt
